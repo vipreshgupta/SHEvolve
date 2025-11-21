@@ -8,13 +8,19 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
 app.use(cors({
-  origin: ["https://shevolve.netlify.app"],
-  methods: ["GET", "POST", "PATCH", "DELETE"],
-  credentials: true
+  origin: [
+    "https://shevolve.netlify.app",
+    "http://localhost:3000", // For local development
+    "http://localhost:5173"  // For Vite development
+  ],
+  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+// Add OPTIONS handler for preflight requests
+app.options('*', cors());
 app.use(express.json());
 
 // MongoDB connection
@@ -36,7 +42,15 @@ MongoClient.connect(MONGODB_URI, {
     process.exit(1);
   });
 // API Routes
-
+// Health check endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'SHEvolve Backend API is running',
+    timestamp: new Date(),
+    version: '1.0.0'
+  });
+});
 // POST: Join Revolution
 app.post('/api/revolution/join', async (req, res) => {
   try {

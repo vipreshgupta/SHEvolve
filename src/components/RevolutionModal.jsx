@@ -43,6 +43,7 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
     }));
   };
 
+  // In RevolutionModal.jsx - Update the fetch URL
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -60,6 +61,8 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
         }),
       });
 
+      const data = await response.json(); // Add this line to parse response
+
       if (response.ok) {
         setSubmitStatus('success');
         setTimeout(() => {
@@ -70,7 +73,7 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
             organization: '',
             role: '',
             location: '',
-            interest: '', 
+            interest: '',
             message: '',
             contribution: []
           });
@@ -78,10 +81,11 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
           onClose();
         }, 2000);
       } else {
+        console.error('Server error:', data); // Log server error
         setSubmitStatus('error');
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Network error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -93,15 +97,14 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fadeIn">
       {/* Backdrop */}
-      <div 
+      <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
 
       {/* Modal */}
-      <div className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl border-4 border-pink-500 ${
-        darkMode ? 'bg-gray-900' : 'bg-white'
-      }`}>
+      <div className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl border-4 border-pink-500 ${darkMode ? 'bg-gray-900' : 'bg-white'
+        }`}>
         {/* Header */}
         <div className="sticky top-0 z-10 bg-gradient-to-r from-pink-500 to-pink-600 p-6 rounded-t-2xl">
           <button
@@ -165,9 +168,8 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
                   value={formData.fullName}
                   onChange={handleChange}
                   required
-                  className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${
-                    darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
-                  }`}
+                  className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
+                    }`}
                   style={{ fontFamily: 'Gabarito, sans-serif' }}
                   placeholder="Enter your full name"
                 />
@@ -184,9 +186,8 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${
-                    darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
-                  }`}
+                  className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
+                    }`}
                   style={{ fontFamily: 'Gabarito, sans-serif' }}
                   placeholder="your.email@example.com"
                 />
@@ -203,9 +204,8 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${
-                    darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
-                  }`}
+                  className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
+                    }`}
                   style={{ fontFamily: 'Gabarito, sans-serif' }}
                   placeholder="+91 XXXXX XXXXX"
                 />
@@ -222,9 +222,8 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
                   value={formData.location}
                   onChange={handleChange}
                   required
-                  className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${
-                    darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
-                  }`}
+                  className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
+                    }`}
                   style={{ fontFamily: 'Gabarito, sans-serif' }}
                   placeholder="City, State"
                 />
@@ -250,9 +249,8 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
                   name="organization"
                   value={formData.organization}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${
-                    darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
-                  }`}
+                  className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
+                    }`}
                   style={{ fontFamily: 'Gabarito, sans-serif' }}
                   placeholder="Your organization name"
                 />
@@ -268,9 +266,8 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
                   name="role"
                   value={formData.role}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${
-                    darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
-                  }`}
+                  className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
+                    }`}
                   style={{ fontFamily: 'Gabarito, sans-serif' }}
                   placeholder="e.g., Student, NGO Worker, Researcher"
                 />
@@ -294,9 +291,8 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
                 value={formData.interest}
                 onChange={handleChange}
                 required
-                className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${
-                  darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
-                }`}
+                className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
+                  }`}
                 style={{ fontFamily: 'Gabarito, sans-serif' }}
               >
                 <option value="">Select your primary interest</option>
@@ -325,11 +321,10 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
               {contributionOptions.map((option) => (
                 <label
                   key={option}
-                  className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
-                    formData.contribution.includes(option)
+                  className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${formData.contribution.includes(option)
                       ? 'border-pink-500 bg-pink-50 dark:bg-pink-900/20'
                       : 'border-pink-300 hover:border-pink-400'
-                  } ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
+                    } ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
                 >
                   <input
                     type="checkbox"
@@ -361,9 +356,8 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
                 value={formData.message}
                 onChange={handleChange}
                 rows="4"
-                className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors resize-none ${
-                  darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
-                }`}
+                className={`w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:outline-none transition-colors resize-none ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
+                  }`}
                 style={{ fontFamily: 'Gabarito, sans-serif' }}
                 placeholder="Share your ideas, questions, or how you envision contributing to the SHEvolve revolution..."
               />
@@ -375,11 +369,10 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`px-12 py-4 bg-gradient-to-r from-pink-500 to-pink-600 text-white font-black text-xl rounded-full shadow-xl transform transition-all ${
-                isSubmitting 
-                  ? 'opacity-50 cursor-not-allowed' 
+              className={`px-12 py-4 bg-gradient-to-r from-pink-500 to-pink-600 text-white font-black text-xl rounded-full shadow-xl transform transition-all ${isSubmitting
+                  ? 'opacity-50 cursor-not-allowed'
                   : 'hover:scale-105 hover:shadow-2xl'
-              }`}
+                }`}
               style={{ fontFamily: 'Gabarito, sans-serif' }}
             >
               {isSubmitting ? (
