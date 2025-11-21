@@ -18,9 +18,7 @@ app.use(cors({
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-
-// Add OPTIONS handler for preflight requests
-app.options('*', cors());
+ 
 app.use(express.json());
 
 // MongoDB connection

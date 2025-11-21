@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Heart, Droplet, AlertCircle, CheckCircle, XCircle, Moon, Sun, Download, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const EssentialGuide = () => {
   const [scrollY, setScrollY] = useState(0);
   const [darkMode, setDarkMode] = useState(true);
-
+  const navigate = useNavigate(); 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
@@ -13,25 +14,28 @@ const EssentialGuide = () => {
 
   const pdfResources = [
     {
-      title: "Complete Period Guide",
-      description: "Comprehensive guide covering everything about menstruation, health, and wellness",
+      title: "Period Calender",
+      description: "Easily log your menstrual cycle, predict your next period and fertile window, and gain insights into your body's health",
       icon: "📚",
-      pages: "24 pages",
-      topics: ["Menstrual cycle", "Hygiene tips", "Common concerns", "When to see a doctor"]
+      pages: "1 page",
+      topics: ["Menstrual cycle", "Common concerns", "When to see a doctor"],
+      link:"./SHEvolve's_Period_Calendar.pdf"
     },
     {
-      title: "Nutrition & Periods",
-      description: "Foods to eat, supplements to take, and dietary tips for better period health",
+      title: "Yearly Period Calender",
+      description: "Visualize a full year of cycles, predict long-term patterns, and master your menstrual health.",
       icon: "🥗",
-      pages: "16 pages",
-      topics: ["Iron-rich foods", "Anti-inflammatory diet", "Supplements", "Meal planning"]
+      pages: "1 pages",
+      topics: ["Iron-rich foods", "Anti-inflammatory diet", "Supplements", "Meal planning"],
+      link:"./SHEvolve's_Yearly_Period_Tracker.pdf"
     },
     {
       title: "Period Tracker Template",
       description: "Printable tracker to monitor your cycle, symptoms, and patterns over time",
       icon: "📊",
-      pages: "8 pages",
-      topics: ["Monthly tracker", "Symptom log", "Mood tracker", "Flow intensity guide"]
+      pages: "1 pages",
+      topics: ["Monthly tracker", "Symptom log", "Mood tracker", "Flow intensity guide"],
+      link:"./SHEvolve's_Period_Tracker.pdf"
     }
   ];
 
@@ -258,11 +262,12 @@ const EssentialGuide = () => {
                     ))}
                   </ul>
                 </div>
-
+                <a href={resource.link} target="_blank" download>
                 <button className="w-full bg-pink-500 text-white font-medium py-3 px-6 rounded-lg hover:bg-pink-600 transition-colors flex items-center justify-center space-x-2 shadow-md" style={{ fontFamily: 'Inter, sans-serif' }}>
                   <Download className="w-4 h-4" />
                   <span>Download PDF</span>
                 </button>
+                </a>
               </div>
             ))}
           </div>

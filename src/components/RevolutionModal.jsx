@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, UserPlus, Mail, Phone, MapPin, Building2, Users, MessageSquare, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
   const [formData, setFormData] = useState({
@@ -13,7 +14,7 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
     message: '',
     contribution: []
   });
-
+  const navigate = useNavigate(); 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
