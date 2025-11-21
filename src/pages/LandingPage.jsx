@@ -401,16 +401,21 @@ const LandingPage = () => {
                 </h3>
                 <div className="space-y-2 sm:space-y-3">
                   {[
-                    'Radhika Dwivedi (B24378)',
-                    'Samridhi Singh (B24382)',
-                    'Vipresh Gupta (B2412)',
-                    'Kritika Raj (B2442)',
-                    'Harshil Rawal (B2433)',
-                    'Ishani Kalra (B24035)'
+                    { name: 'Radhika Dwivedi (B24378)', img: 'radhikadwivedi.jpeg' },
+                    { name: 'Samridhi Singh (B24382)', img: 'samridhisingh.jpeg' },
+                    { name: 'Vipresh Gupta (B2412)', img: 'vipreshgupta.jpeg' },
+                    { name: 'Kritika Raj (B2442)', img: 'kritikaraj.jpeg' },
+                    { name: 'Harshil Rawal (B2433)', img: 'harshilrawal.jpeg' },
+                    { name: 'Ishani Kalra (B24035)', img: 'ishanikalra.jpeg' }
                   ].map((member, idx) => (
-                    <div key={idx} className={`rounded-lg sm:rounded-xl p-3 sm:p-4 border-2 border-pink-500 ${darkMode ? 'bg-gray-800' : 'bg-pink-50'}`}>
+                    <div key={idx} className={`rounded-lg sm:rounded-xl p-3 sm:p-4 border-2 border-pink-500 ${darkMode ? 'bg-gray-800' : 'bg-pink-50'} flex items-center gap-3`}>
+                      <img 
+                        src={`/${member.img}`} 
+                        alt={member.name}
+                        className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-pink-500"
+                      />
                       <p className={`text-sm sm:text-base lg:text-lg font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`} style={{ fontFamily: 'Gabarito, sans-serif' }}>
-                        {member}
+                        {member.name}
                       </p>
                     </div>
                   ))}
@@ -422,21 +427,35 @@ const LandingPage = () => {
                   Faculty Mentors 🎓
                 </h3>
                 <div className="space-y-4">
-                  <div className={`rounded-lg sm:rounded-xl p-4 sm:p-6 border-2 border-pink-500 ${darkMode ? 'bg-gray-800' : 'bg-pink-50'}`}>
-                    <p className="text-lg sm:text-xl font-bold text-pink-500 mb-2" style={{ fontFamily: 'Gabarito, sans-serif' }}>
-                      Dr. Neha Thakur
-                    </p>
-                    <p className={`text-sm sm:text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`} style={{ fontFamily: 'Gabarito, sans-serif' }}>
-                      Assistant Professor, IKSHMA
-                    </p>
+                  <div className={`rounded-lg sm:rounded-xl p-4 sm:p-6 border-2 border-pink-500 ${darkMode ? 'bg-gray-800' : 'bg-pink-50'} flex items-center gap-4`}>
+                    <img 
+                      src="/dr_nehathakur.jpeg" 
+                      alt="Dr. Neha Thakur"
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-pink-500"
+                    />
+                    <div>
+                      <p className="text-lg sm:text-xl font-bold text-pink-500 mb-2" style={{ fontFamily: 'Gabarito, sans-serif' }}>
+                        Dr. Neha Thakur
+                      </p>
+                      <p className={`text-sm sm:text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`} style={{ fontFamily: 'Gabarito, sans-serif' }}>
+                        Assistant Professor, IKSHMA
+                      </p>
+                    </div>
                   </div>
-                  <div className={`rounded-lg sm:rounded-xl p-4 sm:p-6 border-2 border-pink-500 ${darkMode ? 'bg-gray-800' : 'bg-pink-50'}`}>
-                    <p className="text-lg sm:text-xl font-bold text-pink-500 mb-2" style={{ fontFamily: 'Gabarito, sans-serif' }}>
-                      Dr. Gajendra Singh
-                    </p>
-                    <p className={`text-sm sm:text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`} style={{ fontFamily: 'Gabarito, sans-serif' }}>
-                      Assistant Professor, SMME
-                    </p>
+                  <div className={`rounded-lg sm:rounded-xl p-4 sm:p-6 border-2 border-pink-500 ${darkMode ? 'bg-gray-800' : 'bg-pink-50'} flex items-center gap-4`}>
+                    <img 
+                      src="/dr_gajendrasingh.jpeg" 
+                      alt="Dr. Gajendra Singh"
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-pink-500"
+                    />
+                    <div>
+                      <p className="text-lg sm:text-xl font-bold text-pink-500 mb-2" style={{ fontFamily: 'Gabarito, sans-serif' }}>
+                        Dr. Gajendra Singh
+                      </p>
+                      <p className={`text-sm sm:text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`} style={{ fontFamily: 'Gabarito, sans-serif' }}>
+                        Assistant Professor, SMME
+                      </p>
+                    </div>
                   </div>
                 </div>
 
@@ -469,7 +488,7 @@ const LandingPage = () => {
                   Email Us
                 </h3>
                 <p className={`text-sm sm:text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`} style={{ fontFamily: 'Gabarito, sans-serif' }}>
-                  shevolve@iitmandi.ac.in
+                  vipreshgupta2006@gmail.com
                 </p>
               </div>
 
@@ -479,7 +498,7 @@ const LandingPage = () => {
                   Call Us
                 </h3>
                 <p className={`text-sm sm:text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`} style={{ fontFamily: 'Gabarito, sans-serif' }}>
-                  +91 XXXX XXXXXX
+                  +91 79735 74307
                 </p>
               </div>
 
