@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Routes, Route, Navigate, useNavigate, useLocation } from "react-router-dom"; // <-- add useLocation
- 
+import Navbar from './components/Navbar';
 import LandingPage from './pages/LandingPage';
  
 
@@ -8,7 +8,7 @@ function App() {
   const navigate = useNavigate(); 
    
   return (
-    <div> 
+    <div>  
       <Routes>
         <Route path="/" element={<LandingPage />} />
       </Routes>
