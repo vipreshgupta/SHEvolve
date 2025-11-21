@@ -49,7 +49,7 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('http://localhost:5000/api/revolution/join', {
+      const response = await fetch('https://shevolve-backend.onrender.com/api/revolution/join', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const RevolutionModal = ({ isOpen, onClose, darkMode }) => {
             organization: '',
             role: '',
             location: '',
-            interest: '',
+            interest: '', 
             message: '',
             contribution: []
           });

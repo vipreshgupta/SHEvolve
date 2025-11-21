@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { X, FileText, Leaf, Droplet, Recycle, Heart, Shield, Sparkles, Mail, Phone, MapPin } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import RevolutionModal from '../components/RevolutionModal';
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage = () => {
   const [showPopup, setShowPopup] = useState(true);
   const [scrollY, setScrollY] = useState(0);
   const [darkMode, setDarkMode] = useState(true);
   const [showRevolutionModal, setShowRevolutionModal] = useState(false);
-
+  const navigate = useNavigate(); 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
@@ -135,11 +136,11 @@ const LandingPage = () => {
 
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-6 sm:pt-8 px-4">
               <button 
-                onClick={() => scrollToSection('about')}
+                onClick={() => navigate("/guide")}
                 className="bg-pink-500 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-full hover:bg-pink-600 transform hover:scale-105 transition-all shadow-xl text-sm sm:text-base"
                 style={{ fontFamily: 'Gabarito, sans-serif' }}
               >
-                Learn More 🌸
+                An Essential Guide 🌸
               </button>
               <button 
                 onClick={() => setShowRevolutionModal(true)}

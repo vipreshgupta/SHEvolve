@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Routes, Route, Navigate, useNavigate, useLocation } from "react-router-dom"; // <-- add useLocation
 import Navbar from './components/Navbar';
 import LandingPage from './pages/LandingPage';
+import EssentialGuide from './pages/EssentialGuide';
  
 
 function App() { 
@@ -11,6 +12,7 @@ function App() {
     <div>  
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/guide" element={<EssentialGuide />} />
       </Routes>
     </div>
   )
