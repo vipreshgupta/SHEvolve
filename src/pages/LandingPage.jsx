@@ -488,7 +488,7 @@ const LandingPage = () => {
                   Email Us
                 </h3>
                 <p className={`text-sm sm:text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`} style={{ fontFamily: 'Gabarito, sans-serif' }}>
-                  vipreshgupta2006@gmail.com
+                  shevolveiitmandi@gmail.com
                 </p>
               </div>
 
