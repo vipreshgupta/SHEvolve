@@ -403,9 +403,9 @@ const LandingPage = () => {
                   {[
                     { name: 'Radhika Dwivedi (B24378)', img: 'radhikadwivedi.jpeg' },
                     { name: 'Samridhi Singh (B24382)', img: 'samridhisingh.jpeg' },
-                    { name: 'Vipresh Gupta (B2412)', img: 'vipreshgupta.jpeg' },
-                    { name: 'Kritika Raj (B2442)', img: 'kritikaraj.jpeg' },
-                    { name: 'Harshil Rawal (B2433)', img: 'harshilrawal.jpeg' },
+                    { name: 'Vipresh Gupta (B24412)', img: 'vipreshgupta.jpeg' },
+                    { name: 'Kritika Raj (B24442)', img: 'kritikaraj.jpeg' },
+                    { name: 'Harshil Rawal (B24433)', img: 'harshilrawal.jpeg' },
                     { name: 'Ishani Kalra (B24035)', img: 'ishanikalra.jpeg' }
                   ].map((member, idx) => (
                     <div key={idx} className={`rounded-lg sm:rounded-xl p-3 sm:p-4 border-2 border-pink-500 ${darkMode ? 'bg-gray-800' : 'bg-pink-50'} flex items-center gap-3`}>
