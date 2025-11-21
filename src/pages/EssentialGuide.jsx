@@ -87,14 +87,14 @@ const EssentialGuide = () => {
     },
     {
       name: "Menstrual Cups",
-      icon: "🥤",
+      icon: " ",
       pros: ["Eco-friendly", "Cost-effective long-term", "12-hour protection"],
       cons: ["Initial learning curve", "Requires cleaning", "Not for everyone"],
       tips: "Sterilize between cycles and empty every 8-12 hours"
     },
     {
       name: "Period Underwear",
-      icon: "👙",
+      icon: " ",
       pros: ["Reusable", "Comfortable", "Eco-friendly"],
       cons: ["Higher upfront cost", "Requires washing", "May need backup"],
       tips: "Great as backup or for light days"
