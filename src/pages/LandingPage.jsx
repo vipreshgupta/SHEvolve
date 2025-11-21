@@ -38,7 +38,7 @@ const LandingPage = () => {
         darkMode={darkMode}
       />
 
-      {/* Popup Modal - No Blur */}
+      {/* Popup Modal */}
       {showPopup && (
         <div className="fixed bottom-8 right-8 z-50 bg-gradient-to-br from-pink-500 to-pink-600 rounded-3xl shadow-2xl p-6 max-w-sm border-4 border-pink-400 animate-bounce-in">
           <button
@@ -74,18 +74,25 @@ const LandingPage = () => {
         </div>
       )}
 
-      {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div 
-          className="absolute inset-0 opacity-10"
-          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-        >
-          <div className="absolute top-20 left-10 w-32 h-32 bg-pink-500 rounded-full blur-3xl" />
-          <div className="absolute top-40 right-20 w-40 h-40 bg-pink-600 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 left-1/4 w-36 h-36 bg-pink-400 rounded-full blur-3xl" />
-        </div>
+      {/* Hero Section with Background Image */}
+      <section 
+        id="home" 
+        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+        style={{
+          backgroundImage: 'url(/bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        {/* Dark overlay for better text readability */}
+        <div className={`absolute inset-0 ${
+          darkMode 
+            ? 'bg-black/70' 
+            : 'bg-white/70'
+        }`} style={{ transform: `translateY(${scrollY * 0.3}px)` }} />
 
-        <div className="container mx-auto px-6 z-10">
+        <div className="container mx-auto px-6 z-10 relative">
           <div 
             className="text-center space-y-8"
             style={{ transform: `translateY(${scrollY * 0.2}px)` }}
@@ -118,7 +125,7 @@ const LandingPage = () => {
             </div>
 
             <p 
-              className={`text-xl max-w-3xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
+              className={`text-xl max-w-3xl mx-auto ${darkMode ? 'text-gray-200' : 'text-gray-800'}`}
               style={{ fontFamily: 'Gabarito, sans-serif' }}
             >
               A revolutionary low-cost sanitary pad disposal system that promotes 
@@ -137,7 +144,7 @@ const LandingPage = () => {
               <button 
                 onClick={() => setShowRevolutionModal(true)}
                 className={`font-bold py-4 px-8 rounded-full border-4 border-pink-500 transform hover:scale-105 transition-all shadow-xl ${
-                  darkMode ? 'bg-black text-white hover:bg-pink-500' : 'bg-white text-pink-500 hover:bg-pink-50'
+                  darkMode ? 'bg-black/50 text-white hover:bg-pink-500' : 'bg-white/50 text-pink-500 hover:bg-pink-50'
                 }`}
                 style={{ fontFamily: 'Gabarito, sans-serif' }}
               >
@@ -152,7 +159,6 @@ const LandingPage = () => {
       <section 
         id="about"
         className={`relative py-24 overflow-hidden ${darkMode ? 'bg-black' : 'bg-white'}`}
-        style={{ transform: `translateY(${scrollY * 0.08}px)` }}
       >
         <div className="container mx-auto px-6">
           <div className={`rounded-3xl shadow-2xl p-12 border-4 border-pink-500 ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
@@ -208,7 +214,6 @@ const LandingPage = () => {
       <section 
         id="problem"
         className={`relative py-24 overflow-hidden ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}
-        style={{ transform: `translateY(${scrollY * 0.1}px)` }}
       >
         <div className="container mx-auto px-6">
           <div className={`rounded-3xl shadow-2xl p-12 border-4 border-pink-500 ${darkMode ? 'bg-black' : 'bg-white'}`}>
@@ -253,7 +258,7 @@ const LandingPage = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-3xl animate-pulse shadow-xl">
+                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center text-3xl animate-pulse shadow-xl">
                     ⚠️
                   </div>
                 </div>
@@ -267,7 +272,6 @@ const LandingPage = () => {
       <section 
         id="solution"
         className={`relative py-24 overflow-hidden ${darkMode ? 'bg-black' : 'bg-white'}`}
-        style={{ transform: `translateY(${scrollY * 0.05}px)` }}
       >
         <div className="container mx-auto px-6">
           <h2 className="text-6xl font-black text-center mb-16 text-pink-500" style={{ fontFamily: 'Gabarito, sans-serif' }}>
@@ -365,7 +369,6 @@ const LandingPage = () => {
       {/* Join the Revolution Section */}
       <section 
         className={`relative py-24 overflow-hidden ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}
-        style={{ transform: `translateY(${scrollY * 0.03}px)` }}
       >
         <div className="container mx-auto px-6 text-center">
           <div className={`max-w-4xl mx-auto rounded-3xl p-12 shadow-2xl border-4 border-pink-500 ${darkMode ? 'bg-black' : 'bg-white'}`}>
